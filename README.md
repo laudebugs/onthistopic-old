@@ -1,94 +1,81 @@
-The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
 
-(___TODO__: your project name_)
-
-# Shoppy Shoperson 
-
+# Storiez
+### A social network of telling, connecting and sharing stories and experiences
 ## Overview
 
 (___TODO__: a brief one or two paragraph, high-level description of your project_)
 
+The way we tell stories is linear. And reading a book is done linearly. A photo is a scene frozen in time. However, time is as much circular as it is linear, with loops of events occurring that have occured before. A story in a book doesn't tell the other story that happens at the same time, in another book. A photo taken of something doesn't capture something else. The experiences we have - of joy, of peace, of war, of sadness, are emotions that many people can experience at the same time - And these experiences have different layers - from opinions that inform how we react to certain events, to the sensibilities that we have as people to be a certain version of ourselves at a certain point in time, to the perspectives that we have. 
+_Storiez_ is a website that draws lets it's users find out if their stories are connected, if their experiences are related to other people's experience. It will allow uses to log in entries, create a timeline and circle for their lives and draw connections between the user's experiences and the experiences of other people.
 Remembering what to buy at the grocery store is waaaaay too difficult. Also, shopping for groceries when you're hungry leads to regrettable purchases. Sooo... that's where Shoppy Shoperson comes in!
-
-Shoppy Shoperson is a web app that will allow users to keep track of multiple grocery lists. Users can register and login. Once they're logged in, they can create or view their grocery list. For every list that they have, they can add items to the list or cross off items.
 
 
 ## Data Model
 
-(___TODO__: a description of your application's data and their relationships to each other_) 
 
-The application will store Users, Lists and Items
+The application will store Users, log entries
 
-* users can have multiple lists (via references)
-* each list can have multiple items (by embedding)
+* Each entry will consist of one or more of: log entries, photos
+* A user will be able to be told if other people are going through a similar experience, i.e. if what they are going through is something a character in a book has gone through, for example, if a user called Issa is doing her final exams and is anxious, the application will will relay other people's experiences to the user.
+* The application will fill in the user's timeline with each experience and and display the experience in a timeline and circle of their life in totality
 
-(___TODO__: sample documents_)
 
 An Example User:
 
 ```javascript
 {
-  username: "shannonshopper",
+  username: "Issa",
   hash: // a password hash,
-  lists: // an array of references to List documents
+  experiences: [
+    {Date: 2019-05-27, emotions: ["joy", "peace"], log:" Finally getting done with Finals so it's time for Summer to really begin"},
+    {Date: 2020-04-01, emotions: ["lazy", "bored", "sleepy"], log:" Corona be turning the world upside down"}
+
+    ]
 }
 ```
 
-An Example List with Embedded Items:
-
-```javascript
-{
-  user: // a reference to a User object
-  name: "Breakfast foods",
-  items: [
-    { name: "pancakes", quantity: "9876", checked: false},
-    { name: "ramen", quantity: "2", checked: true},
-  ],
-  createdAt: // timestamp
-}
-```
 
 
 ## [Link to Commented First Draft Schema](db.js) 
 
-(___TODO__: create a first draft of your Schemas in db.js and link to it_)
 
 ## Wireframes
 
-(___TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc._)
-
 /list/create - page for creating a new shopping list
 
-![list create](documentation/list-create.png)
+![list create](documentation/home.jpg)
 
 /list - page for showing all shopping lists
 
-![list](documentation/list.png)
+![list](documentation/notifications.jpg)
 
 /list/slug - page for showing specific shopping list
 
-![list](documentation/list-slug.png)
+![list](documentation/archive.jpg)
 
 ## Site map
 
-(___TODO__: draw out a site map that shows how pages are related to each other_)
+Home
+|
+  Notifications
+  |
+  Archive
+  |
+  Account
 
 Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
 
 ## User Stories or Use Cases
 
-(___TODO__: write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format) and / or [use cases](https://www.mongodb.com/download-center?jmp=docs&_ga=1.47552679.1838903181.1489282706#previous)_)
 
 1. as non-registered user, I can register a new account with the site
 2. as a user, I can log in to the site
-3. as a user, I can create a new grocery list
-4. as a user, I can view all of the grocery lists I've created in a single list
-5. as a user, I can add items to an existing grocery list
-6. as a user, I can cross off items in an existing grocery list
+3. as a user, I can add a personal experience list
+4. as a user, I can view all of my experiences as a linear or circular
+5. as a user, I can send messages to other users with a similar experience 
+6. as a user, I can recieve messages from other users
 
 ## Research Topics
-
-(___TODO__: the research topics that you're planning on working on along with their point values... and the total points of research topics listed_)
 
 * (5 points) Integrate user authentication
     * I'm going to be using passport for user authentication
@@ -98,8 +85,8 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 * (4 points) Perform client side form validation using a JavaScript library
     * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
     * if you put in a number that's greater than 5, an error message will appear in the dom
-* (5 points) vue.js
-    * used vue.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
+* (5 points) PWAs
+    * Progressive Web Applications are the future of the web (looks like it). It's a new field and a lot to cover and learn. Giving it 5 points
 
 10 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit_)
 
