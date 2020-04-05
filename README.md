@@ -1,24 +1,24 @@
 
-# Storiez
-### A social network of telling, connecting and sharing stories and experiences
+# On This Topic
+### A platform for curated podcasts, articles and music on a topic
 ## Overview
 
-(___TODO__: a brief one or two paragraph, high-level description of your project_)
+Listen and read to curated playlists of podcasts, music and articles on a certain topics. 
 
-The way we tell stories is linear. And reading a book is done linearly. A photo is a scene frozen in time. However, time is as much circular as it is linear, with loops of events occurring that have occured before. A story in a book doesn't tell the other story that happens at the same time, in another book. A photo taken of something doesn't capture something else. The experiences we have - of joy, of peace, of war, of sadness, are emotions that many people can experience at the same time - And these experiences have different layers - from opinions that inform how we react to certain events, to the sensibilities that we have as people to be a certain version of ourselves at a certain point in time, to the perspectives that we have. 
-_Storiez_ is a website that draws lets it's users find out if their stories are connected, if their experiences are related to other people's experience. It will allow uses to log in entries, create a timeline and circle for their lives and draw connections between the user's experiences and the experiences of other people.
-Remembering what to buy at the grocery store is waaaaay too difficult. Also, shopping for groceries when you're hungry leads to regrettable purchases. Sooo... that's where Shoppy Shoperson comes in!
+### Description
+Ever interested in listening to different opinions on a certain topic for example Hope, Love, or a moment in history? There are podcasts just for these topics, but what if you could have different takes on the topic from different podcasts. For instance, if you could listen to different opinions about the city of Nairobi and have a publicly curated list of podcasts, music and articles that speak to a certain topic, that feature a particular public figure or that talk about a certain place. This is where _On This Topic_ comes in. Find curated lists of podcasts, music and articles that speak to a certain topic, place, or featuring a particular public figure.
 
 
 ## Data Model
 
-
-The application will store Users, log entries
-
-* Each entry will consist of one or more of: log entries, photos
-* A user will be able to be told if other people are going through a similar experience, i.e. if what they are going through is something a character in a book has gone through, for example, if a user called Issa is doing her final exams and is anxious, the application will will relay other people's experiences to the user.
-* The application will fill in the user's timeline with each experience and and display the experience in a timeline and circle of their life in totality
-
+The Web application will have users suggest topics, and for each topic, add links to podcast episodes, articles and curated playlists. Each podcast episode will be ranked based on likes/recommendations. 
+* A user will be able to add/submit a topic to the site
+* For each topic, a user will be able to add a link to an article, a podcast episode or a song (they will be referred to as resources)
+* For each resource, a user will have to tag the location (where the resource was produced), tags for the resource, notes to the particular resourse
+* Users will be able to add notes to a resource
+* Each resource (article, podcast episode or song) will be ranked based on number of likes/recommendations
+* Each contribution (a resource or note) for a particular user will be tied to that user and the user will only be able to recommend a resource once. 
+* Each resource will have a resourceID (rid), linked to the particular topic
 
 An Example User:
 
@@ -26,11 +26,8 @@ An Example User:
 {
   username: "Issa",
   hash: // a password hash,
-  experiences: [
-    {Date: 2019-05-27, emotions: ["joy", "peace"], log:" Finally getting done with Finals so it's time for Summer to really begin"},
-    {Date: 2020-04-01, emotions: ["lazy", "bored", "sleepy"], log:" Corona be turning the world upside down"}
-
-    ]
+  contributions: { "FaithX01"}
+  
 }
 ```
 
@@ -41,39 +38,70 @@ An Example User:
 
 ## Wireframes
 
-/list/create - page for creating a new shopping list
+/home - home page 
 
-![list create](documentation/home.jpg)
+![home](documentation/homepage-notsignedin.png)
 
-/list - page for showing all shopping lists
+/signup - sign up page
 
-![list](documentation/notifications.jpg)
+![sign up](documentation/signup.png)
 
-/list/slug - page for showing specific shopping list
+/signin - sign in page (for users with accounts)
 
-![list](documentation/archive.jpg)
+![sign in](documentation/signin.png)
+
+/home - home page (When a user is signed in - has access to _my account_)
+
+![home](documentation/homepage.png)
+
+
+/topics/hope - page for showing the topic on hope
+
+![topics hope](documentation/topic-onhope.png)
+
+/topics/hope/contribute - page for showing the topic on hope with access to contribute form
+
+![topics hope contribute](documentation/topic-onhope-contribute.png)
+
+/topics/onfear - Page for showing the topic of fear
+
+![topics fear](documentation/topic-onfear.png)
+
+/topics/hope - page for showing the topic on hope
+
+![topics hope](documentation/topic-onhope.png)
+
+/map - page for showing a world map of topics and people
+
+![map](documentation/map.png)
+
+/foryou/hope - page for a particular users contributions
+
+![foryou](documentation/topic-onhope.png)
+
+/myaccount - Page to access a users account info
+
+![myaccount](documentation/myaccount.png)
+
 
 ## Site map
 
-Home
-|
-  Notifications
-  |
-  Archive
-  |
-  Account
-
-Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
+![sitemap](documentation/sitemap.png)
 
 ## User Stories or Use Cases
 
+As a non-registered user, I can:
+1. register a new account with the site
+2. View and read content on the site
 
-1. as non-registered user, I can register a new account with the site
-2. as a user, I can log in to the site
-3. as a user, I can add a personal experience list
-4. as a user, I can view all of my experiences as a linear or circular
-5. as a user, I can send messages to other users with a similar experience 
-6. as a user, I can recieve messages from other users
+As a registered user. I can: 
+
+3. log in to the site
+4. add a particular topic
+5. add a resource to a particular topic
+6. upvote/recomment/like a particular resource
+7. add a note/comment to a partucular resource
+8. view and change account details
 
 ## Research Topics
 
@@ -85,8 +113,9 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 * (4 points) Perform client side form validation using a JavaScript library
     * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
     * if you put in a number that's greater than 5, an error message will appear in the dom
-* (5 points) PWAs
+* (5 points) PWAs, APIs
     * Progressive Web Applications are the future of the web (looks like it). It's a new field and a lot to cover and learn. Giving it 5 points
+    * I plan to use some apis to add to the site in order to display the links to the podcasts, songs or articles. I also plan on using Google Maps APIs
 
 
 ## [Link to Initial Main Project File](src/app.js) 
