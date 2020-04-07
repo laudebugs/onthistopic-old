@@ -1,0 +1,111 @@
+
+@font-face {
+    font-family: "Anaktoria";
+    src: url('fonts/anaktoria-textfonts/Anaktoria.ttf');
+}
+@font-face {
+    font-family: "GlacialIndifference";
+    src: url('fonts/glacial-indifference/GlacialIndifference-Bold.otf');
+}
+@font-face {
+    font-family: "LeagueSpartan";
+    src: url('fonts/league-spartan/LeagueSpartan-Bold.otf');
+}
+@font-face {
+    font-family: "YesevaOne";
+    src: url('fonts/yeseva-one/YesevaOne-Regular_v2.otf');
+}
+@font-face {
+    font-family: 'PlayfairDisplay-italics';
+    src: url('fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf')
+}
+html{
+    background-color: #072D60;
+}
+header{
+    padding-left: 20px;
+}
+h1{
+    padding-left: 20px;
+    font-family: 'LeagueSpartan';
+    font-size: 100px;
+    color: #E8C161;
+}
+h2{
+    font-family: 'LeagueSpartan';
+    font-size: 20px;
+    color: #E8C161;
+}
+h3{
+    font-size: 30px;
+    font-family: 'YesevaOne';
+    color: #ffffff;
+}
+h4{
+    font-family: 'PlayfairDisplay-italics';
+    font-size: 25px;
+    color: #ffffff;  
+}
+h5{
+    font-family: 'Anaktoria';
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+body{
+    font-size: medium;
+    color: #ffffff;
+}
+/* div{
+    display: inline;
+} */
+#top-menu-button img{
+    padding-top: 40px;
+    padding-right: 40px;
+    height: 30;
+    width: 100px;
+}
+#top-menu{
+    width: 70%;
+    display: inline-block;
+}
+#top-menu-button{
+    float: right;
+}
+.sidemenu{
+    float: right;
+}
+.sidemenu img{
+    height: 150px;
+    width:150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.main {
+    padding: 0px 10px;
+}
+.button {
+    position: relative;
+    text-align: center;
+    color: #E8C161;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.button-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.button-text-timeline{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.button a{
+    color: #E8C161;
+
+}
+.button a:hover{
+    color: rgb(214, 189, 124);
+}
