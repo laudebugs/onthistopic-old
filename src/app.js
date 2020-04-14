@@ -42,7 +42,16 @@ app.get('/topics', function(req, res){
     
     res.render('topics.hbs');
 })
+podcast_list = [];
 
+app.get('/topics/hope', function(req, res){
+    res.render('topic', {podcasts: podcast_list});
+});
+app.post('/topics/hope', function(req, res){
+    podcast_list.push(req.body.podcast_url)
+
+    res.redirect('/topics/hope');
+})
 //people page
 app.get('/people', function(req, res){
     

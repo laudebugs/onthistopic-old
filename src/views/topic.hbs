@@ -16,12 +16,8 @@
         <form action="/topics/hope" method="POST">
         
         <tr>
-            <td style="text-align: right;">Resource Type</td>
-            <td>
-                <select id = "" name = "resource_type">
-                <option value = "podcast">Podcast</option>
-            </select>
-            </td>
+            <td style="text-align: right;">Spotify Podcast Embed Url</td>
+            <td></label><input id="" type="text" name="podcast_url"></td>
         </tr>
         <tr>
             <td style="text-align: right;">add tags</td>
@@ -33,5 +29,8 @@
         </tr>
         <tr ><td></td><td ><input type="submit" value="Submit" style="background:yellow;"></td></tr>
     </form>
+    {{#each podcasts as |pod|}}
+                {{pod}}
+    {{/each}}
     </body>
 </html>
