@@ -21,40 +21,155 @@
 }
 html{
     background-color: #072D60;
+    padding: 2%;
 }
 header{
-    padding-left: 20px;
+    align-content: flex-start;
 }
 h1{
-    text-align: center;
-    padding-left: 20px;
     font-family: 'LeagueSpartan';
-    font-size: 100px;
     color: #E8C161;
+}
+h1.page-title{
+    text-align: center;
+    font-size: 400%;
+    color: #E8C161;
+}
+h1.sideheading{
+    font-size: 125%;
 }
 h2{
     font-family: 'LeagueSpartan';
-    font-size: 20px;
+    font-size: 175%;
     color: #E8C161;
 }
 h3{
-    font-size: 30px;
+    font-size: 150%;
     font-family: 'YesevaOne';
     color: #ffffff;
 }
 h4{
     font-family: 'PlayfairDisplay-italics';
-    font-size: 25px;
-    color: #ffffff;  
+    font-size: 200%;
+    color: #ffffff;
 }
 h5{
     font-family: 'Anaktoria';
-    font-size: 20px;
-    color: rgb(255, 255, 255);
+    font-size: 150%;
+    color: rgba(255, 255, 255, 1);
 }
-body{
-    font-size: medium;
-    color: #ffffff;
+p{
+    font-family: "GlacialIndifference";
+    color: whitesmoke;
+    text-align: center;
+}
+p.temp{
+    display: inline-block;
+}
+head~div{
+    display: inline-block;
+}
+div.page-title-menu{
+    width: 15%;
+    height: 10%;
+    float: left;
+}
+div.page-title{
+    width: 70%;
+    display: inline-block;
+    align-content: center;
+}
+div.menu{
+    width: 10%;
+    text-align: center;
+    float: right;
+}
+hr{
+    width: 90%;
+    color: rgb(255, 188, 20);
+    margin-bottom: 1%;
+}
+div.main-content{
+    width: 70%;
+    display: inline-block;
+    margin: 1%;
+}
+div.resources{
+    display: inline-block;
+    width: 55%;
+    margin: 1%;
+}
+div.resources-notes{
+    margin: 1%;
+    display: inline-block;
+    width: 40%;
+    border: 1px solid whitesmoke;
+    vertical-align: top;
+    text-align: center;
+    align-items: center;
+    background-color:  rgba(255, 255, 255, 0.466);
+}
+div.sidemenu{
+    display: inline-block;
+    width: 20%;
+}
+div>img{
+    width: 50%;
+    height: 3%;
+}
+div.content-menu{
+    width: 20%;
+    height: 60px;
+    border: 1.5px solid #8dcbda;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    align-items: center;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+}
+iframe.content{
+    margin: 5px;
+}
+div.new-topic{
+    display: inline-block;
+    border: 1px solid #f08897;
+    height: 16%;
+    width: 32%;
+}
+div.button {
+    height: 16%;
+    width: 60%;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    color: #E8C161;
+    padding: 5px;
+}
+div.new-topic{
+    position: relative;
+    text-align: center;
+}
+img.button{
+    max-width: 80%;
+    max-height: 100%;
+}
+.button-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+div.notebook{
+    margin-top: 5px;
+    height: 350px;
+    border: 1px solid whitesmoke;
+    border-radius: 1em 4em 1em 4em / 2em 1em 2em 1em;
+    -moz-border-radius: 1em 4em 1em 4em
+    / 2em 1em 2em 1em;
+    -webkit-border-radius: 1em 4em 1em 4em
+    / 2em 1em 2em 1em;
 }
 #sidebyside{
     display: inline-block;
@@ -67,12 +182,7 @@ body{
 #topictitle{
     display: inline-block;
     height: 10px;
-    width: 70%;
-}
-#topicmenu{
-    display: inline-block;
-    height: 30px;
-    width: 10%;
+    width: 40%;
 }
 #top-menu-button img{
     padding-top: 40px;
@@ -99,29 +209,26 @@ body{
 .main {
     padding: 0px 10px;
 }
-.button {
-    position: relative;
-    text-align: center;
-    color: #E8C161;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-.button-text{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
 .button-text-timeline{
     position: absolute;
     top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.button a{
-    color: #E8C161;
-
+a:link{
+    text-decoration: none;
 }
-.button a:hover{
-    color: rgb(214, 189, 124);
+a:hover{
+    color: deeppink;
+    text-decoration: overline;
+}
+a:active{
+    text-emphasis: none;
+}
+h1>a:visited{
+    color: #E8C161;
+}
+h1~a:hover{
+    text-decoration: none;
 }
