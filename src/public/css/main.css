@@ -23,9 +23,6 @@ html{
     background-color: #072D60;
     padding: 2%;
 }
-header{
-    align-content: flex-start;
-}
 h1{
     font-family: 'LeagueSpartan';
     color: #E8C161;
@@ -58,6 +55,7 @@ h5{
     font-size: 150%;
     color: rgba(255, 255, 255, 1);
 }
+
 p{
     font-family: "GlacialIndifference";
     color: whitesmoke;
@@ -69,15 +67,26 @@ p.temp{
 head~div{
     display: inline-block;
 }
-div.page-title-menu{
+div.site-title{
     width: 15%;
     height: 10%;
     float: left;
 }
+div.main-site-title{
+    width: 80%;
+    height: 20%;
+    float: left;
+    
+}
+/* img.site-title{
+    width: 30%;
+    height: 70%;
+    float: left;
+    border: 1px solid wheat;
+} */
 div.page-title{
     width: 70%;
     display: inline-block;
-    align-content: center;
 }
 div.menu{
     width: 10%;
@@ -103,7 +112,6 @@ div.resources-notes{
     margin: 1%;
     display: inline-block;
     width: 40%;
-    border: 1px solid whitesmoke;
     vertical-align: top;
     text-align: center;
     align-items: center;
@@ -112,6 +120,7 @@ div.resources-notes{
 div.sidemenu{
     display: inline-block;
     width: 20%;
+    vertical-align: top;
 }
 div>img{
     width: 50%;
@@ -197,9 +206,8 @@ div.notebook{
 #top-menu-button{
     float: right;
 }
-.sidemenu{
-    float: right;
-}
+
+
 .sidemenu img{
     height: 150px;
     width:150px;
@@ -210,12 +218,7 @@ div.notebook{
     padding: 0px 10px;
 }
 
-.button-text-timeline{
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
 a:link{
     text-decoration: none;
 }
@@ -228,7 +231,4 @@ a:active{
 }
 h1>a:visited{
     color: #E8C161;
-}
-h1~a:hover{
-    text-decoration: none;
 }

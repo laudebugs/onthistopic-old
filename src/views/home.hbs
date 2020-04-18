@@ -1,51 +1,92 @@
 
-
-    <div id='top-menu'>
-        <header>
-        <h1>on this topic</h1>
-        </header>
-        
-    </div>
-    <div id='top-menu-button'>
-            <img id='top-menu' src = "/images/menu-button.gif" >
+<!DOCTYPE html>
+<html>
+    <head>
+        <div class="main-site-title">
+            <h1 class="page-title"><a href="/">on this topic</a></h1>
         </div>
-<body>
-    <div class="main">
-            <h3>Deep dive into one theme, place, or public figure</h3>
-            <h4>editor's choice</h4>
+        <div class="menu">
+            <img src = "/images/menu-button.gif" >
+        </div>
+            {{!-- <hr> --}}
+    </head>
+<body >
+    <link href = "/css/home.css" type="text/css" rel = "stylesheet" >
 
+    <div  >
+        <div class="main-content">
+            <div class="blurb">
+                <h3>Deep dive into one theme, place, or public figure</h3>
+                <p>editor's choice:</p>
+            </div>
+            <div>
             <!-- for each featured topic, place it in a list  -->
-            featured content goes here
-            {{featured}}
-        <div class="sidemenu">
+                <div class="featured-content">
+                    <a href="topics/fear"><p class="topic">
+                        on fear
+                    </p>
+                    </a>
+                    <p class="blurb">
+                        how fear works, and why it is such a big part of our lives
+                    </p>
+                    <p class="stats">
+                        5 podcast episodes, 3 articles
+                    </p>
+                </div>
+                <div class="featured-content">
+                    <a href="topics/hope"><p class="topic">
+                        on hope
+                    </p>
+                    </a>
+                    <p class="blurb">
+                        in dark times, what is it that gives us reason to not give up
+                    </p>
+                    <p class="stats">
+                        7 podcast episodes, 3 articles, 1 playlist
+                    </p>
+                </div>
+                <div class="featured-content">
+                    <a href="topics/nairobi">
+                    <p class="topic">
+                        on nairobi
+                    </p>
+                    </a>
+                    <p class="blurb">
+                        Kenya's capital holds beauty and voices that speak to what makes the city magical
+                    </p>
+                    <p class="stats">
+                        9 podcast episodes, 5 articles, 2 playlists
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="sidemenu-main">
             <!-- Place side menu here  -->
-            <div class="button">
-                
+            <div class="side-menu-button">
                 <a href="/map">
-                <img src = "/images/globe.png" ></a>
-                
+                <img class="button" src = "/images/globe.png" ></a>
             </div>
-            <div class="button">
-                <a href="/topics">
-                <img src = "/images/hexagon.png" >
-                <div class="button-text"><h5>topix</h5></div>
+            <div class="side-menu-button">
+                <img class="button" src="/images/hexagon.png"  >
+                <a href="/topix">
+                <div class="centered"><h5>topics</h5></div>
                 </a>
             </div>
-            <div class="button">
+            <div class="side-menu-button">
+                <img  class="button" src="/images/elipsis.png">
                 <a href="/people">
-                <img src = "/images/elipsis.png" >
-                <div class="button-text"><h5>people</h5></div>
+                <div class="centered"><h5>people</h5></div>
                 </a>
             </div>
-            <div  class="button">
+            <div class="side-menu-button">
+                <img  class="button" src="/images/timeline.png">
                 <a href="/timeline">
-                <img src = "/images/timeline.png" >
                 <div class="button-text-timeline"><h5>timeline</h5></div>
                 </a>
             </div>
 
         </div>
     </div>
-
 </body>
 
+</html>
