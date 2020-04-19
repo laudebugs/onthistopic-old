@@ -66,7 +66,7 @@ p.account{
 }
 p.signin{
     font-family: 'Anaktoria';
-    font-size: 150%;
+    font-size: 125%;
     color: rgba(255, 255, 255, 1);
     display: inline;
 }
@@ -75,6 +75,7 @@ p.signin{
 } */
 h2.signin{
     display: inline;
+    font-size: 125%;
 }
 p{
     font-family: "GlacialIndifference";
@@ -273,4 +274,63 @@ a.side:hover{
 div.signin{
     width: 100%;
     text-align: center;
+}
+div.frm{
+    display: block;
+    text-align: center;
+    display: inline-block;
+    padding: 10px;
+}
+div.signinbtn{
+    font-family: 'Anaktoria';
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-top: 10px;
+    text-align: center;
+}
+    
+  
+
+form.signin{
+    font-family: 'Anaktoria';
+    font-size: 150%;
+    color: rgba(255, 255, 255, 1);
+    display: inline;
+}
+.signin input{
+    font-family: "GlacialIndifference";
+    font-size: 100%;
+    color: #E8C161;;
+    background-color: #072D60;
+    border: 1px solid wheat;
+}
+button.signinbtn {
+    font-family: 'Anaktoria';
+    font-size: 150%;
+    color: rgba(255, 255, 255, 1);
+    padding      : 5px;
+    background   : none;
+    cursor: url('/images/cursor.png') 16 16,  pointer;
+    border: 1px solid whitesmoke;
+    border-radius: 1em 4em 1em 4em / 2em 1em 2em 1em;
+    -moz-border-radius: 1em 4em 1em 4em
+    / 2em 1em 2em 1em;
+    -webkit-border-radius: 1em 4em 1em 4em
+    / 2em 1em 2em 1em;
+    box-shadow: 0 0 2px 2px #555;
+  }  
+}
+button.signinbtn:hover{
+    background: #016ABC;
+
+    color: rgb(250, 135, 135);
+
+    border: 1px solid rgb(250, 135, 135);
+
+    border-radius: 20px;
+
+    box-shadow: 5px 5px 5px rgb(221, 109, 109);
+
+    text-shadow:none;
+    text-decoration: line-through;
 }
