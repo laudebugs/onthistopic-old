@@ -22,7 +22,10 @@
 html{
     background-color: #072D60;
     padding: 2%;
+    cursor: url('/images/cursor.png') 16 16,  pointer;
 }
+
+
 h1{
     font-family: 'LeagueSpartan';
     color: #E8C161;
@@ -55,11 +58,29 @@ h5{
     font-size: 150%;
     color: rgba(255, 255, 255, 1);
 }
-
+p.account{
+    font-family: 'Anaktoria';
+    font-size: 100%;
+    color: rgba(255, 255, 255, 1);
+    display: inline;
+}
+p.signin{
+    font-family: 'Anaktoria';
+    font-size: 150%;
+    color: rgba(255, 255, 255, 1);
+    display: inline;
+}
+/* .account h6{
+    border:0.5px solid wheat;
+} */
+h2.signin{
+    display: inline;
+}
 p{
     font-family: "GlacialIndifference";
     color: whitesmoke;
     text-align: center;
+    margin: 5px;
 }
 p.temp{
     display: inline-block;
@@ -72,10 +93,12 @@ div.site-title{
     height: 10%;
     float: left;
 }
+
 div.main-site-title{
-    width: 80%;
+    width: 60%;
     height: 20%;
     float: left;
+    text-align: center;
     
 }
 /* img.site-title{
@@ -92,6 +115,12 @@ div.menu{
     width: 10%;
     text-align: center;
     float: right;
+}
+
+div.account{
+    border:0.5px solid wheat;
+    text-align: center;
+    margin-top: 10px;
 }
 hr{
     width: 90%;
@@ -221,14 +250,27 @@ div.notebook{
 
 a:link{
     text-decoration: none;
+    cursor: url('/images/cursor.png') 16 16,  pointer;
 }
 a:hover{
     color: deeppink;
     text-decoration: overline;
+    cursor: url('/images/cursor.png')16 16,  pointer;
 }
 a:active{
     text-emphasis: none;
+    background: url('/images/visited-link.png');
 }
 h1>a:visited{
     color: #E8C161;
+}
+a.side:hover{
+    color:  deeppink;
+    text-decoration: line-through;
+    transition: border-bottom .2s, border-left .4s, border-top .6s, border-right .9s;
+}
+
+div.signin{
+    width: 100%;
+    text-align: center;
 }

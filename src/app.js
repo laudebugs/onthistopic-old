@@ -7,6 +7,11 @@ const path = require('path');
 const publicPath = path.resolve(__dirname, "public");
 
 // TODO: require the schemas and add the models to mongoose
+require('./db');
+const Topic = mongoose.model('Topic');
+const Resource = mongoose.model('Resource');
+const User = mongoose.model('User');
+const Note = mongoose.model('Note');
 
 
 app.set('view engine','hbs');
@@ -28,27 +33,31 @@ app.get('/', function(req, res){
 //Sign up page
 app.get('/signup', function(req, res){
     
-    res.render('signup-in.hbs');
+    res.render('signup.hbs');
 })
 
 //Sign in page
 app.get('/signin', function(req, res){
     
-    res.render('signup-in.hbs');
+    res.render('signin.hbs');
 })
-
+app.get('/signup', function(req, res){
+    
+    res.render('signup.hbs');
+})
 //topics page
-app.get('/topics', function(req, res){
+app.get('/themes', function(req, res){
     
     res.render('topics.hbs');
 })
-podcast_list = ['"https://open.spotify.com/embed-podcast/episode/6Tnw9NvPKjkcgnTqDuV2H1"'];
 
-app.get('/topics/hope', function(req, res){
-    console.log(podcast_list);
-    var pod_iframes = `<iframe src=${podcast_list[0]}width="100%" height="60" frameborder="0" ></iframe>`;  
+app.get('/themes/hope', function(req, res){
+    //console.log(podcast_list);
+    //var pod_iframes = `<iframe src=${podcast_list[0]}width="100%" height="60" frameborder="0" ></iframe>`;  
     //document.body.innerHTML = pod_iframes;
-    res.render('topic', {podcast:pod_iframes});
+    let x = '<iframe src=$"https://open.spotify.com/embed-podcast/episode/4JdeRgDdgFvIBaFNiRyiLq"width="100%" height="155" frameborder="0" ></iframe>';
+    
+    res.render('topic', {pod:x});
 });
 app.post('/topics/hope', function(req, res){
     //podcast_list.push(req.body.podcast_url)

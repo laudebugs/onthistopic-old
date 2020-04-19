@@ -1,37 +1,79 @@
+<!DOCTYPE html>
 <html>
-    <header>
-        <div id="sitetitle">
-            on this topic
+    <head>
+        <div class="head">
+            <div class="site-title">
+                <a href="/"><h2>on this topic</h2></a>
+                {{!-- <img class="site-title" src="/images/underline.png" alt=""> --}}
+            </div>
+            <div class="page-title">
+                <h1 class="page-title"><a href="/themes">themes</a></h1>
+            </div>
+            <div class="menu"><img src = "/images/menu-button.gif" >
+                <div class="account">
+                <a href="/signup" class="side"><p class="account">sign up/sign in</p></a>
+                </div>
+            </div>
+        </div>        {{!-- <hr> --}}
+    </head>
+    <body >
+    <link href = "/css/home.css" type="text/css" rel = "stylesheet" >
+
+    <div>
+        <div class="left-buffer-topics">
+        </div>
+
+        <div class="topic-content">
+            <hr class="topics">
+            <div class="topics">
+                <div class="topics-menu"><h5 class="sort">sort:</h5></div>
+                <div class="select-sort">
+                    <form class="select-sort" action="" method="GET">
+                        <select name = "sort-option">
+                            <option value = "top-ratings"><h5 class="sort-option">top ratings</h5></option>
+                            <option value = "alphabetical"><h5 class="sort-option">alphabetical</h5></option>
+                            <option value = "most-views"><h5 class="sort-option">most views</h5></option>
+                            <option value = "most-commented"><h5 class="sort-option">most conmmented</h5></option>
+                        </select>
+                        <input type="submit" value="go">
+                    </form>
+                </div> 
+            </div>
+            <hr class="topics">
+            <div class="topic-list">
+                <a href="topics/themes/hope"><h3>hope</h3></a>
+                <h3>fear</h3>
+                <h3>love</h3>
+                <h3>faith</h3>
+                <h3>identity</h3>
+
+
+            </div>
         </div>
         
-        <div id="topictitle">
-        <!-- replace the topic with a variable that will be changed on each topic  -->
-        <h1>on hope</h1>
+        <div class="sidemenu-main">
+                <!-- Place side menu here  -->
+                <div class="side-menu-button">
+                    <img class="button" src = "/images/globe.png" >
+                     <div class="centered"><a href="/map" class="side"><h5>map</h5></a></div>
+                </div>
+                <div class="side-menu-button">
+                    <img class="button" src="/images/hexagon.png"  >
+                    <div class="centered"><a href="/themes" class="side"><h5>themes</h5></a></div>
+                </div>
+                <div class="side-menu-button">
+                    <img  class="button" src="/images/elipsis.png">
+                    
+                    <div class="centered"><a href="/people" class="side"><h5>people</h5></a></div>
+                </div>
+                <div class="side-menu-button">
+                    <img  class="button" src="/images/timeline.png">
+                    
+                    <div class="button-text-timeline"><a href="/timeline" class="side"><h5>timeline</h5></a></div>
+                    
+                </div>
+
         </div>
-        <div id="topicmenu">
-            <img id='top-menu' src = "/images/menu-button.gif" >
-        </div>
-    </header>
-    <body>
-        <form action="/topics/hope" method="POST">
-        
-        <tr>
-            <td style="text-align: right;">Resource Type</td>
-            <td>
-                <select id = "" name = "resource_type">
-                <option value = "podcast">Podcast</option>
-            </select>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: right;">add tags</td>
-            <td></label><input id="" type="text" name="tags"></td>
-        </tr>
-        <tr >
-            <td style="text-align: right;">Notes</td>
-            <td></label><input id="" type="text" name="notes"></td>
-        </tr>
-        <tr ><td></td><td ><input type="submit" value="Submit" style="background:yellow;"></td></tr>
-    </form>
-    </body>
+    </div>
+</body>
 </html>

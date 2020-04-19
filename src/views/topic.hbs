@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
+
             <div class="site-title">
                 <a href="/"><h2>on this topic</h2></a>
                 {{!-- <img class="site-title" src="/images/underline.png" alt=""> --}}
             </div>
             <div class="page-title">
-                <h1 class="page-title"><a href="/topics/hope">on hope</a></h1>
+                <h1 class="page-title"><a href="/topics/hope">hope</a></h1>
             </div>
             <div class="menu"><img src = "/images/menu-button.gif" ></div>
                 {{!-- <hr> --}}
@@ -23,10 +24,12 @@
             <div >
                 <div class="resources">
                     <p class="temp">page content:</p>
-                    <iframe class="content" width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FBrightmoments%2Frequiem-for-toni-morrison%2F" frameborder="0" ></iframe>
+                    {{!-- <iframe class="content" width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FBrightmoments%2Frequiem-for-toni-morrison%2F" frameborder="0" ></iframe>
                     <iframe  class="content" width="100%" height="155"src="https://open.spotify.com/embed-podcast/episode/4JdeRgDdgFvIBaFNiRyiLq" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                    <iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/335804064&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                    {{page_content}}
+                    <iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/335804064&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe> --}}
+                    <script>    
+                        {{pod}}
+                    </script>
                 </div>
                 <div class="resources-notes">
                     <!-- add a button for adding a note/comment  -->
