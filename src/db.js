@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose');
 
 const Topic = new mongoose.Schema({
     title: String,
@@ -16,9 +17,6 @@ const Resource = new mongoose.Schema({
     rating:[0,0,0,0,0]
 });
 const User = new mongoose.Schema({
-    username: String,
-    password: String,
-    salt: String,
     notes: [{type: Schema.Types.ObjectId, ref: 'Note'}],
     resources: [{type: Schema.Types.ObjectId, ref: 'Resource'}],
     topics: [{type: Schema.Types.ObjectId, ref: 'Topic'}]
@@ -27,6 +25,8 @@ const User = new mongoose.Schema({
      * Add Favourites?
      */
 });
+User.plugin(passportLocalMongoose);
+
 const Note = new mongoose.Schema({
     resource: {type: Schema.Types.ObjectId, ref: 'Resource'},
     content: String,
