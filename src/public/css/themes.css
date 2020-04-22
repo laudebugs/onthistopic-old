@@ -169,6 +169,7 @@ div.addContent{
     display: inline-block;
     width: 80%;
     margin-bottom: 5px;
+    vertical-align: middle;
 }
 div.addBtn{
     display: inline-block;

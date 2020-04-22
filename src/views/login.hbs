@@ -1,0 +1,34 @@
+    <script>
+    siteTtl = document.querySelector('.page-title')
+    pg = document.currentScript.getAttribute('page')
+    siteTtl.innerHTML = `<h1 class="page-title"><a href="/register">login</a></h1>`
+    pagelnk = document.querySelector('.site-title')
+    pagelnk.textContent = `on this topic`
+    pagelnk.innerHTML = `<a href="/"><h2>on this topic</h2></a>`
+</script>
+<div class="signin">
+    
+        <form class="signin" action="/login" method="POST">
+            <div class="frm">
+                <tr class="signin">
+                    <td >Username:</td>
+                    <td></label><input id="" type="text" name="username"></td>
+                </tr>
+            </div>
+            <br>
+            <div class="frm">
+                <tr class="signin">
+                    <td >Password:</td>
+                    <td></label><input id="" type="password" name="password"></td>
+                </tr>
+            </div>
+            <br>
+            <div class="signinbtn">
+            <tr><td><button class="signinbtn" type="submit">Log in</button></td></tr>
+            </div>
+        </form>
+
+        <p  class="signin">New here? </p>
+        <a href="/register"><h2 class="signin">sign up here</h2></a>
+    </div>
+

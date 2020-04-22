@@ -42,7 +42,7 @@ function main(){
                 place.removeChild(ask);
                 entry = document.createElement('form');
                 editTitle = document.getElementById('subj')
-                subj.textContent = "Add Content to Theme"
+                subj.textContent = `Add Content to ${newTheme}`
 
                 entry.innerHTML = `
                     <form class="signin" action="" method="POST">
@@ -50,7 +50,7 @@ function main(){
                             <div class="addBtn"></div>
                             <div class="addContent">
                                 <p class="form" >Podcast Embed Url:</p>
-                                <input id="" type="text" name="url" theme=${newTheme}>
+                                <textarea id="" type="text" name="url" cols="20" rows="4" theme=${newTheme}></textarea>
                             </div>
                             <div class="addBtn">
                                     <img src="/images/plus.png" class="addBtn">

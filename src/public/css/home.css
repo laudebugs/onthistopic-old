@@ -70,6 +70,9 @@ div.sidemenu-main{
     float: right;
     
 }
+img.button,div.centered:hover{
+    cursor: url('/images/visited-link.png') 25 25,  pointer;
+}
 div.button {
     height: 10%;
     width: 30%;
@@ -107,8 +110,9 @@ img.button{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
   }
   
 .centered {
@@ -116,5 +120,14 @@ img.button{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: 100%;
   }
   
+  h5.side{
+    font-family: "AmaticSC-Regular";
+    font-size: 125%;
+    color: #7da97a;   
+  }
+  p.form{
+    font-family: 'Anaktoria';
+  }
