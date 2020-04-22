@@ -1,0 +1,194 @@
+p.form{
+    font-size: 125%;
+    display: inline;
+}
+hr.topics{
+    width: 60%;
+    height: 1px;
+    color: wheat;
+    background-color: wheat;
+}
+div.page-content{
+    width: 85%;
+    display: inline-block;
+}
+div.topics{
+    width: 100%;
+    text-align: center;
+}
+
+div.left-buffer-topics{
+    width: 15%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+}
+
+div.new-topic{
+    display: inline-block;
+    border: 1px solid #f08897;
+    height: 100%;
+    width: 80%;
+}
+button.add:hover, div.new-topic:hover{
+    border: 2px solid  #E8C161;
+    color:  #E8C161;
+}
+div.topic-content{
+    width: 80%;
+    display: inline-block;
+    text-align: center;
+}
+
+div.topics{
+    width: 100%;
+    text-align: center;
+    align-items: center;
+}
+div.topic-list{
+    width: 60%;
+    display: inline-block;
+    text-align: left;
+}
+div.topics-menu{
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.select-sort{
+    display: inline-block;
+    margin-left: 10px;
+    position: relative; 
+    background: no-repeat #072D60;
+    background-image: url('/images/select-button.png');
+    align-items: center;
+    margin: auto;
+    
+}
+
+.select-sort select{
+    border-radius: 0;
+    font-family: 'Anaktoria';
+    color: rgb(230, 214, 175);
+    font-size: 150%;
+    background:  #072D60;
+    border-color: #072D60;
+}
+.select-sort input{
+    font-family: 'Anaktoria';
+    color: white;
+    font-size: 125%;
+    background-color: #072D60;
+    border: 1px solid snow;
+    border-radius: 1em 4em 1em 4em / 2em 1em 2em 1em;
+    -moz-border-radius: 1em 4em 1em 4em
+    / 2em 1em 2em 1em;
+    -webkit-border-radius: 1em 4em 1em 4em
+    / 2em 1em 2em 1em;
+    margin: none;
+}
+.select-selected {
+    background-color: rgba(5, 42, 90, 0.863);
+}
+
+.select-selected:after{
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+div.add-topic{
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+}
+form.signin{
+    font-family: 'Anaktoria';
+    font-size: 150%;
+    color: rgba(255, 255, 255, 1);
+    display: inline;
+}
+.signin input{
+    font-family: "GlacialIndifference";
+    font-size: 100%;
+    color: #E8C161;;
+    background-color: #072D60;
+    border: 1px solid wheat;
+}
+.add{
+    margin: 10px;
+    font-family: 'Anaktoria';
+    font-size: 100%;
+    color: rgba(255, 255, 255, 1);
+    padding      : 5px;
+    background   : none;
+    cursor: url('/images/cursor.png') 16 16,  pointer;
+    border: 1px solid whitesmoke;
+    border-radius: 8em 4em 1em 4em / 4em 3em 5em 5em;
+    -moz-border-radius: 1em 4em 1em 4em
+    / 4em 2em 4em 2em;
+    -webkit-border-radius: 2em 4em 1em 1em
+    / 5em 4em 2em 2em;
+    box-shadow: 0 0 2px 2px #555;
+}
+.add2{
+    margin: 5px;
+    font-family: 'Anaktoria';
+    font-size: 100%;
+    color: rgba(255, 255, 255, 1);
+    padding      : 5px;
+    background   : none;
+    cursor: url('/images/cursor.png') 16 16,  pointer;
+    border: 1px solid whitesmoke;
+    border-radius: 8em 4em 1em 4em / 4em 3em 5em 5em;
+    -moz-border-radius: 1em 4em 1em 4em
+    / 4em 2em 4em 2em;
+    -webkit-border-radius: 2em 4em 1em 1em
+    / 5em 4em 2em 2em;
+    box-shadow: 0 0 2px 2px #555;
+}
+#fin{
+    color: rgba(255, 255, 255, 1);
+}
+h2.res, h2.q{
+    display: inline;
+    font-size: 100%;
+    color: wheat;
+}
+.new-theme{
+    display: inline-block;
+    text-align: center;
+    width: 80%;
+}
+div.addContent{
+    text-align: center;
+    display: inline-block;
+    width: 80%;
+    margin-bottom: 5px;
+}
+div.addBtn{
+    display: inline-block;
+    height:8%;
+    width: 8%;
+    text-align: right;
+    vertical-align: bottom;
+}
+div.addBtnMinus{
+    display: inline-block;
+    height:8%;
+    width: 8%;
+    text-align: right;
+    vertical-align: bottom;
+}
+img.addBtn{
+    width: 100%;
+    height: 100%;
+}
+div.entry{
+    margin: 10px;
+    border: 0.1px dashed cornsilk;
+}

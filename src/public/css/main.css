@@ -171,12 +171,6 @@ div.content-menu{
 iframe.content{
     margin: 5px;
 }
-div.new-topic{
-    display: inline-block;
-    border: 1px solid #f08897;
-    height: 16%;
-    width: 32%;
-}
 div.button {
     height: 16%;
     width: 60%;
@@ -185,10 +179,6 @@ div.button {
     text-align: center;
     color: #E8C161;
     padding: 5px;
-}
-div.new-topic{
-    position: relative;
-    text-align: center;
 }
 img.button{
     max-width: 80%;
@@ -237,13 +227,13 @@ div.notebook{
     float: right;
 }
 
-
 .sidemenu img{
     height: 150px;
     width:150px;
     margin-left: auto;
     margin-right: auto;
 }
+
 .main {
     padding: 0px 10px;
 }
@@ -289,8 +279,6 @@ div.signinbtn{
     text-align: center;
 }
     
-  
-
 form.signin{
     font-family: 'Anaktoria';
     font-size: 150%;
@@ -318,7 +306,7 @@ button.signinbtn {
     -webkit-border-radius: 1em 4em 1em 4em
     / 2em 1em 2em 1em;
     box-shadow: 0 0 2px 2px #555;
-  }  
+    
 }
 button.signinbtn:hover{
     background: #016ABC;

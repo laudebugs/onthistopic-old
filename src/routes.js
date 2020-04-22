@@ -1,6 +1,7 @@
 const passport = require('passport');
 
-module.exports = function (app){
+
+
     //homepage
     app.get('/', function(req, res){
 
@@ -19,9 +20,9 @@ module.exports = function (app){
         res.render('signin.hbs');
     })
     app.post('/signup', function(req, res) {
-        Account.register(new Account({ username : req.body.username }), req.body.password, function(err, account) {
+        User.register(new User({ username : req.body.username }), req.body.password, function(err, user) {
             if (err) {
-                return res.render('register', { account : account });
+                return res.render('signup', { user : user });
             }
 
             passport.authenticate('local')(req, res, function () {
@@ -90,4 +91,4 @@ module.exports = function (app){
     })
 
 
-};
+

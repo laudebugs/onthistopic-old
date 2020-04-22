@@ -38,6 +38,7 @@ mongoose.model('Resource', Resource);
 mongoose.model('User', User);
 mongoose.model('Note', Note);
 
+
 // is the environment variable, NODE_ENV, set to PRODUCTION? 
 let dbconf;
 if (process.env.NODE_ENV === 'PRODUCTION') {
@@ -45,7 +46,7 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
  // use blocking file io to do this...
  const fs = require('fs');
  const path = require('path');
- const fn = path.join(__dirname, '../config.json');
+ const fn = path.join('config.json');
  const data = fs.readFileSync(fn);
 
  // our configuration file will be in json, so parse it and set the

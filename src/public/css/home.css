@@ -28,12 +28,6 @@ h5.sort-option{
     font-size: 175%;
     color: #E8C161;
 }
-hr.topics{
-    width: 60%;
-    height: 1px;
-    color: wheat;
-    background-color: wheat;
-}
 p.topic{
     font-family: 'Anaktoria';
     font-size: 150%;
@@ -53,15 +47,8 @@ p.stats{
     text-align: center;
 }
 
-div.topics{
-    width: 100%;
-    text-align: center;
-}
-div.topic-list{
-    width: 60%;
-    display: inline-block;
-    text-align: left;
-}
+
+
 div.main-content{
     width: 80%;
     display: inline-block;
@@ -83,71 +70,6 @@ div.sidemenu-main{
     float: right;
     
 }
-div.left-buffer-topics{
-    width: 15%;
-    display: inline-block;
-}
-div.topic-content{
-    width: 65%;
-    display: inline-block;
-    text-align: center;
-}
-div.topics{
-    width: 100%;
-    text-align: center;
-    align-items: center;
-}
-div.topics-menu{
-    display: inline-block;
-    margin-right: 10px;
-    margin-left: 10px;
-}
-.select-sort{
-    display: inline-block;
-    margin-left: 10px;
-    position: relative; 
-    background: no-repeat #072D60;
-    background-image: url('/images/select-button.png');
-    align-items: center;
-    margin: auto;
-    
-}
-
-.select-sort select{
-    border-radius: 0;
-    font-family: 'Anaktoria';
-    color: #E8C161;
-    font-size: 150%;
-    background:  #072D60;
-    border-color: #072D60;
-}
-.select-sort input{
-    font-family: 'Anaktoria';
-    color: white;
-    font-size: 125%;
-    background-color: #072D60;
-    border: 1px solid snow;
-    border-radius: 1em 4em 1em 4em / 2em 1em 2em 1em;
-    -moz-border-radius: 1em 4em 1em 4em
-    / 2em 1em 2em 1em;
-    -webkit-border-radius: 1em 4em 1em 4em
-    / 2em 1em 2em 1em;
-    margin: none;
-}
-.select-selected {
-    background-color: rgba(5, 42, 90, 0.863);
-}
-
-.select-selected:after{
-    position: absolute;
-    content: "";
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
-}
 div.button {
     height: 10%;
     width: 30%;
@@ -158,12 +80,6 @@ div.button {
     padding: 5px;
     margin: auto;
 
-}
-.sidemenu img{
-    height: 125px;
-    width: 125px;
-    margin-left: auto;
-    margin-right: auto;
 }
 img.button{
     max-width: 60%;

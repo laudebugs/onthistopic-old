@@ -7,23 +7,8 @@ const http = require('http');
 const mongoose = require('mongoose');
 const publicPath = path.resolve(__dirname, "public");
 
-var passport = require('passport')
-  , LocalStrategy = require('passport-local').Strategy;
-
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
-  }
-));
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 
 // TODO: require the schemas and add the models to mongoose
@@ -40,19 +25,102 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-  });
-  
-passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-        done(err, user);
-    });
-});
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 // mongoose
 //mongoose.connect('mongodb://localhost/passport_local_mongoose');
 
-// routes
-require('./routes')(app);
 
-app.listen(20908);
+
+    //homepage
+    app.get('/', function(req, res){
+
+        res.render('home.hbs');
+    })
+
+    //Sign up page
+    app.get('/signup', function(req, res){
+        
+        res.render('signup.hbs');
+    })
+
+    //Sign in page
+    app.get('/signup', function(req, res){
+        
+        res.render('signin.hbs');
+    })
+    app.post('/signup', function(req, res) {
+        User.register(new User({ username : req.body.username }), req.body.password, function(err, user) {
+            if (err) {
+                return res.render('signup', { user : user });
+            }
+
+            passport.authenticate('local')(req, res, function () {
+            res.redirect('/');
+            });
+        });
+    });
+
+    app.get('/signin', function(req, res) {
+        res.render('signin.hbs', { user : req.user });
+    });
+
+    app.post('/signin', passport.authenticate('local'), function(req, res) {
+        res.redirect('/');
+    });
+
+    app.get('/signout', function(req, res) {
+        req.logout();
+        res.redirect('/');
+    });
+    //topics page
+    app.get('/themes', function(req, res){
+        
+        res.render('themes.hbs');
+    })
+
+    app.get('/themes/hope', function(req, res){
+        //console.log(podcast_list);
+        //var pod_iframes = `<iframe src=${podcast_list[0]}width="100%" height="60" frameborder="0" ></iframe>`;  
+        //document.body.innerHTML = pod_iframes;
+        let x = '<iframe src=$"https://open.spotify.com/embed-podcast/episode/4JdeRgDdgFvIBaFNiRyiLq"width="100%" height="155" frameborder="0" ></iframe>';
+        
+        res.render('topic.hbs', {pod:x});
+    });
+    app.post('/themes/hope', function(req, res){
+        
+        res.redirect('/topic/hope');
+    })
+    //people page
+    app.get('/people', function(req, res){
+        
+        res.render('people.hbs');
+    })
+
+    //map page
+    app.get('/map', function(req, res){
+        
+        res.render('map.hbs');
+    })
+
+    //my account page
+    app.get('/foryou', function(req, res){
+        
+        res.render('4u.hbs');
+    })
+
+    //my account page
+    app.get('/myaccount', function(req, res){
+        
+        res.render('myaccount.hbs');
+    })
+    app.get('/temp', function(req, res){
+        
+        res.render('temp.hbs');
+    })
+
+
+app.listen(process.env.PORT || 3000)
