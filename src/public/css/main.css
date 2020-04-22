@@ -291,6 +291,14 @@ form.signin{
     background-color: #072D60;
     border: 1px solid wheat;
 }
+textarea.fill{
+
+    font-family: "GlacialIndifference";
+    font-size: 100%;
+    color: #E8C161;;
+    background-color: #072D60;
+    border: 1px solid wheat;
+}
 button.signinbtn {
     font-family: 'Anaktoria';
     font-size: 150%;
@@ -320,4 +328,10 @@ button.signinbtn:hover{
 
     text-shadow:none;
     text-decoration: line-through;
+}
+input.inpt{
+    width: 550px;
+    height: 0px;
+    margin: auto;
+    position: relative;
 }

@@ -11,6 +11,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 
+app.use(express.static(publicPath));
+
 // TODO: require the schemas and add the models to mongoose
 require('./db');
 const Topic = mongoose.model('Topic');
@@ -95,17 +97,13 @@ passport.deserializeUser(User.deserializeUser());
         })
     });
     app.post('/themes/hope', function(req, res){
-        console.log(req.body.link)
-        const r = new Podcast({
+        const p = new Podcast({
             embed_link: req.body.link
         })
-        r.save((err)=>{
-            if(err){
-
-            }
+        p.save((err)=>{
             res.redirect('/themes/hope');
-        })
-    })
+        });
+    });
     //people page
     app.get('/people', function(req, res){
         
