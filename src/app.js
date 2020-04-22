@@ -14,7 +14,7 @@ var LocalStrategy = require('passport-local').Strategy;
 // TODO: require the schemas and add the models to mongoose
 require('./db');
 const Topic = mongoose.model('Topic');
-const Resource = mongoose.model('Resource');
+const Podcast = mongoose.model('Podcast');
 const User = mongoose.model('User');
 const Note = mongoose.model('Note');
 
@@ -78,21 +78,33 @@ passport.deserializeUser(User.deserializeUser());
     });
     //topics page
     app.get('/themes', function(req, res){
-        
         res.render('themes.hbs');
+    })
+    app.post('/themes', function(req, res){
+        res.redirect('/themes');
     })
 
     app.get('/themes/hope', function(req, res){
-        //console.log(podcast_list);
+        //Podcast.log(podcast_list);
         //var pod_iframes = `<iframe src=${podcast_list[0]}width="100%" height="60" frameborder="0" ></iframe>`;  
         //document.body.innerHTML = pod_iframes;
-        let x = '<iframe src=$"https://open.spotify.com/embed-podcast/episode/4JdeRgDdgFvIBaFNiRyiLq"width="100%" height="155" frameborder="0" ></iframe>';
         
-        res.render('topic.hbs', {pod:x});
+        Podcast.find({}, (err, pods)=>{
+            console.log(pods)
+            res.render('topic.hbs', {podcasts:pods})
+        })
     });
     app.post('/themes/hope', function(req, res){
-        
-        res.redirect('/topic/hope');
+        console.log(req.body.link)
+        const r = new Podcast({
+            embed_link: req.body.link
+        })
+        r.save((err)=>{
+            if(err){
+
+            }
+            res.redirect('/themes/hope');
+        })
     })
     //people page
     app.get('/people', function(req, res){
@@ -123,4 +135,4 @@ passport.deserializeUser(User.deserializeUser());
     })
 
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 3002)

@@ -19,47 +19,34 @@
             </div>
             <div >
                 <div class="resources">
-                    <p class="temp">page content:</p>
-                    {{!-- <iframe class="content" width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FBrightmoments%2Frequiem-for-toni-morrison%2F" frameborder="0" ></iframe>
-                    <iframe  class="content" width="100%" height="155"src="https://open.spotify.com/embed-podcast/episode/4JdeRgDdgFvIBaFNiRyiLq" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                    <iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/335804064&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe> --}}
-                    
-                </div>
-                <div class="resources-notes">
-                    <!-- add a button for adding a note/comment  -->
-                    <h4> notes and comments</h4>
-                </div>
-            </div>
-        </div>
-        <div class="sidemenu">
-            <!-- side menu  -->
-            <div class="button">
-                <!-- contribute content button  -->
-                <!-- Fix link here --> 
-                <a href="/topics">
-                <img class="button" src = "/images/tomato.png" >
-                <div class="button-text"><h5>contribute</h5></div>
-                </a>
-            </div>
-            <div class="notebook">
-                <p > Your notebook </p>
-            </div>
-        </div>
 
-        <!-- Form to contribute to page
-            <form action="/topics/hope" method="POST">
-                <tr>
-                    <td style="text-align: right;">Spotify Podcast Embed Url</td>
-                    <td></label><input id="" type="text" name="podcast_url"></td>
-                </tr>
-                <tr>
-                    <td style="text-align: right;">add tags</td>
-                    <td></label><input id="" type="text" name="tags"></td>
-                </tr>
-                <tr >
-                    <td style="text-align: right;">Notes</td>
-                    <td></label><input id="" type="text" name="notes"></td>
-                </tr>
-                <tr ><td></td><td ><input type="submit" value="Submit" style="background:yellow;"></td></tr>
+                    {{#each podcasts as |p|}}
+                        <script link={{p.embed_link}}>
+                            ifr = document.createElement('iframe')
+                            ifr.src = document.currentScript.getAttribute('link')
+                            parent = document.querySelector('.resources')
+                            parent.appendChild(ifr)
+                            console.log(ifr);
+                        </script>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="notebook">
+            <h5>contribute</h5>
+            <form class="signin" action="/themes/hope" method="POST">
+                <div class="frm">
+                    <tr class="signin">
+                        <td >Podcast Embed Url!!!</td>
+                        <td></label><input id="" type="text" name="link" size="50" height="20"></td>
+                    </tr>
+                </div>
+                <br>
+                <div class="signinbtn">
+                <tr><td><button class="signinbtn" type="submit">Add</button></td></tr>
+                </div>
             </form>
-       -->
+        </div>
+        <!--  Form to contribute to page -->
+            
+       

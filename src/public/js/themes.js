@@ -45,17 +45,19 @@ function main(){
                 subj.textContent = "Add Content to Theme"
 
                 entry.innerHTML = `
-                    <form class="signin" action="/signin" method="POST">
+                    <form class="signin" action="" method="POST">
                         <div class="entry" id=0>
                             <div class="addBtn"></div>
                             <div class="addContent">
-                                <p class="form" >Comma-Separated Embed Url:</p>
-                                <input id="" type="text" name="theme">
+                                <p class="form" >Podcast Embed Url:</p>
+                                <input id="" type="text" name="url" theme=${newTheme}>
                             </div>
                             <div class="addBtn">
                                     <img src="/images/plus.png" class="addBtn">
                             </div>
                         </div>
+                        <button class="add" type="submit" id="fin">Finish</button>
+
                     </form>
                 `;
                 place.appendChild(entry)
@@ -63,15 +65,15 @@ function main(){
                 fin.innerHTML = `
                     <button class="add" type="submit" id="fin">Finish</button>
                 `;
-                place.appendChild(fin);
+                //place.appendChild(fin);
 
                 //Add Event listeners for Add and subtract
 
-                document.getElementById('fin').addEventListener('click', function(evt){
-                    parent.removeChild(form)
-                    parent.appendChild(content);
-                    //Reload Added content
-                })
+                // document.getElementById('fin').addEventListener('click', function(evt){
+                //     parent.removeChild(form)
+                //     parent.appendChild(content);
+                //     //Reload Added content
+                // })
             })
             document.getElementById('noMore').addEventListener('click', function(evt){
                 parent.removeChild(form)

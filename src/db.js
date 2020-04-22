@@ -7,10 +7,10 @@ const Topic = new mongoose.Schema({
     added_by: {type: Schema.Types.ObjectId, ref: 'User'},
     rating:[0,0,0,0,0],
     tags:[String],//Consider making this an object??
-    resources: [{type: Schema.Types.ObjectId, ref: 'Resource'}],
+    Podcasts: [{type: Schema.Types.ObjectId, ref: 'Podcast'}],
     notes: [{type: Schema.Types.ObjectId, ref: 'Note'}]
 });
-const Resource = new mongoose.Schema({
+const Podcast = new mongoose.Schema({
     embed_link: String,
     type: Number,
     added_by: {type: Schema.Types.ObjectId, ref: 'User'},
@@ -18,7 +18,7 @@ const Resource = new mongoose.Schema({
 });
 const User = new mongoose.Schema({
     notes: [{type: Schema.Types.ObjectId, ref: 'Note'}],
-    resources: [{type: Schema.Types.ObjectId, ref: 'Resource'}],
+    Podcasts: [{type: Schema.Types.ObjectId, ref: 'Podcast'}],
     topics: [{type: Schema.Types.ObjectId, ref: 'Topic'}]
     /**
      * _TODO_: 
@@ -28,13 +28,13 @@ const User = new mongoose.Schema({
 User.plugin(passportLocalMongoose);
 
 const Note = new mongoose.Schema({
-    resource: {type: Schema.Types.ObjectId, ref: 'Resource'},
+    Podcast: {type: Schema.Types.ObjectId, ref: 'Podcast'},
     content: String,
     rating:[0,0,0,0,0]
 });
 // "Register" the schema so that mongoose knows about it
 mongoose.model('Topic', Topic);
-mongoose.model('Resource', Resource);
+mongoose.model('Podcast', Podcast);
 mongoose.model('User', User);
 mongoose.model('Note', Note);
 

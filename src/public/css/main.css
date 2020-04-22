@@ -25,7 +25,6 @@ html{
     cursor: url('/images/cursor.png') 16 16,  pointer;
 }
 
-
 h1{
     font-family: 'LeagueSpartan';
     color: #E8C161;
@@ -135,7 +134,7 @@ div.main-content{
 }
 div.resources{
     display: inline-block;
-    width: 55%;
+    width: 100%%;
     margin: 1%;
 }
 div.resources-notes{
