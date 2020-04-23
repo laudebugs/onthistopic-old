@@ -13,6 +13,11 @@ const LocalStrategy = require('passport-local').Strategy;
 const flash = require('connect-flash');
 
 const app = express();
+app.use(express.static(publicPath));
+console.log("here")
+
+console.log(publicPath)
+console.log("here")
 
 //view engine setup
 app.set('view engine', 'hbs');
@@ -24,7 +29,6 @@ const Podcast = mongoose.model('Podcast');
 const User = mongoose.model('User');
 const Note = mongoose.model('Note');
 
-app.use(express.static(publicPath));
 
 
 app.use(logger('dev'));
