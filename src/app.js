@@ -24,6 +24,8 @@ const Podcast = mongoose.model('Podcast');
 const User = mongoose.model('User');
 const Note = mongoose.model('Note');
 
+app.use(express.static(publicPath));
+
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -42,7 +44,6 @@ app.use(session({
     ));
 app.use(flash());
 
-app.use(express.static(publicPath));
 
 //Configure passport middleware
 app.use(passport.initialize());
@@ -108,7 +109,7 @@ app.get('/logout', function(req, res){
 
 //topics page
 app.get('/themes', function(req, res){
-    res.render('themes.hbs');
+    res.render('themes');
 })
 app.post('/themes', function(req, res){
     res.redirect('/themes');
