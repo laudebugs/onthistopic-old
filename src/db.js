@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
 const path = require('path');
 
-const Topic = new mongoose.Schema({
-    title: String,
+const Theme = new mongoose.Schema({
+    themeName: String,
     added_by: {type: Schema.Types.ObjectId, ref: 'User'},
     rating:[0,0,0,0,0],
     tags:[String],//Consider making this an object??
-    Podcasts: [{type: Schema.Types.ObjectId, ref: 'Podcast'}],
+    podcasts: [{type: Schema.Types.ObjectId, ref: 'Podcast'}],
     notes: [{type: Schema.Types.ObjectId, ref: 'Note'}]
 });
 const Podcast = new mongoose.Schema({
@@ -34,12 +34,12 @@ const Note = new mongoose.Schema({
     rating:[0,0,0,0,0]
 });
 // "Register" the schema so that mongoose knows about it
-mongoose.model('Topic', Topic);
+mongoose.model('Theme', Theme);
 mongoose.model('Podcast', Podcast);
 mongoose.model('User', User);
 mongoose.model('Note', Note);
 
-const publicPath = path.resolve(__dirname, "public");
+// const publicPath = path.resolve(__dirname, "public");
 
 // is the environment variable, NODE_ENV, set to PRODUCTION? 
 let dbconf;

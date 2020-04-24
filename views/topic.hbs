@@ -1,51 +1,45 @@
-
-
-
-    <script page={{page}}>
-        siteTtl = document.querySelector('.page-title')
-        pg = document.currentScript.getAttribute('page')
-        siteTtl.innerHTML = `<h1 class="page-title"><a href="/themes/${pg}">${pg}</a></h1>`
-        pagelnk = document.querySelector('.site-title')
-        pagelnk.textContent = `on this topic`
-        pagelnk.innerHTML = `<a href="/"><h2>on this topic</h2></a>`
-    </script>
-    <div class="main-content">
-        <!-- main page content  -->
-        <div>
-                <div class="content-menu"><h4>podcasts</h4></div>
-                <div class="content-menu"><h4>articles</h4></div>
-                <div class="content-menu"><h4>music</h4></div>
-        </div>
-        <div >
-            <div class="resources">
-
-                {{#each podcasts as |p|}}
-                    <script link={{p.embed_link}}>
-                        ifr = document.createElement('iframe')
-                        ifr.className = "ifr"
-                        ifr.src = document.currentScript.getAttribute('link')
-                        parent = document.querySelector('.resources')
-                        parent.appendChild(ifr)
-                        console.log(ifr);
-                    </script>
-                {{/each}}
-            </div>
-        </div>
-        <div class="notebook">
-        <form style="width: 20%;" class="signin" action="" method="POST">
-            <div class="frm">
-                <tr class="signin">
-                    <td style="margin: 5px;">Podcast Embed Url from Spotify, Soundcloud or Mixcloud: <br>eg. https://open.spotify.com/embed-podcast/episode/76ARrkBUa7wCnDk7EMNoUw<br></td>
-                    <td><textarea class="fill" name="link" id="" cols="10" rows="5"></textarea></td>
-                </tr>
-            </div>
-            <div style="display: inline-block;" class="signinbtn">
-            <tr><td><button style="float: center;" class="signinbtn" type="submit">Add</button></td></tr>
-            </div>
-        </form>
+<script page={{page}}>
+    siteTtl = document.querySelector('.page-title')
+    pg = document.currentScript.getAttribute('page')
+    siteTtl.innerHTML = `<h1 class="page-title"><a href="/themes/${pg}">${pg}</a></h1>`
+    pagelnk = document.querySelector('.site-title')
+    pagelnk.textContent = `on this topic`
+    pagelnk.innerHTML = `<a href="/"><h2>on this topic</h2></a>`
+</script>
+<div class="main-content">
+    <!-- main page content  -->
+    <div>
+            <div class="content-menu"><h4>podcasts</h4></div>
+            <div class="content-menu"><h4>articles</h4></div>
+            <div class="content-menu"><h4>music</h4></div>
     </div>
+    <div >
+        <div class="resources">
+
+            {{#each podcasts as |p|}}
+                <script link={{p.embed_link}}>
+                    ifr = document.createElement('iframe')
+                    ifr.className = "ifr"
+                    ifr.src = document.currentScript.getAttribute('link')
+                    parent = document.querySelector('.resources')
+                    parent.appendChild(ifr)
+                    console.log(ifr);
+                </script>
+            {{/each}}
+        </div>
     </div>
-    
-    <!--  Form to contribute to page -->
-        
+    <div class="notebook">
+    <form style="width: 20%;" class="signin" action="" method="POST">
+        <div class="frm">
+            <tr class="signin">
+                <td style="margin: 5px;">Podcast Embed Url from Spotify, Soundcloud or Mixcloud: <br>eg. https://open.spotify.com/embed-podcast/episode/76ARrkBUa7wCnDk7EMNoUw<br></td>
+                <td><textarea class="fill" name="link" id="" cols="10" rows="5"></textarea></td>
+            </tr>
+        </div>
+        <div style="display: inline-block;" class="signinbtn">
+        <tr><td><button style="float: center;" class="signinbtn" type="submit">Add</button></td></tr>
+        </div>
+    </form>
+    </div>
+</div>
     

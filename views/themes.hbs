@@ -1,50 +1,44 @@
-
-    <link href = "/css/themes.css" type="text/css" rel = "stylesheet" >
-
- 
-    <script>
-        siteTtl = document.querySelector('.page-title')
-        siteTtl.innerHTML = `<h1 class="page-title"><a href="/themes">themes</a></h1>`
-        pagelnk = document.querySelector('.site-title')
-        pagelnk.textContent = `on this topic`
-        pagelnk.innerHTML = `<a href="/"><h2>on this topic</h2></a>`
-    </script>
-    <link href = "/css/home.css" type="text/css" rel = "stylesheet" >
-
-    <div class="page-content">
-        <div class="left-buffer-topics">
-            <div class="new-topic">
-                <h5 class="new-topic">new topic?</h5>
-            </div>
-        </div>
-
-        <div class="topic-content">
-            <hr class="topics">
-            <div class="topics">
-                <div class="topics-menu"><h5 class="sort">sort:</h5></div>
-                <div class="select-sort">
-                    <form class="select-sort" action="" method="GET">
-                        <select name = "sort-option">
-                            <option value = "top-ratings"><h5 class="sort-option">top ratings</h5></option>
-                            <option value = "alphabetical"><h5 class="sort-option">alphabetical</h5></option>
-                            <option value = "most-views"><h5 class="sort-option">most views</h5></option>
-                            <option value = "most-commented"><h5 class="sort-option">most conmmented</h5></option>
-                        </select>
-                        <input type="submit" value="go">
-                    </form>
-                </div> 
-            </div>
-            <hr class="topics">
-            <div class="topic-list">
-                <a href="/themes/hope"><h3>hope</h3></a>
-                <h3>fear</h3>
-                <h3>love</h3>
-                <h3>faith</h3>
-                <h3>identity</h3>
+<link href = "/css/themes.css" type="text/css" rel = "stylesheet" >
 
 
-            </div>
+<script>
+    siteTtl = document.querySelector('.page-title')
+    siteTtl.innerHTML = `<h1 class="page-title"><a href="/themes">themes</a></h1>`
+    pagelnk = document.querySelector('.site-title')
+    pagelnk.textContent = `on this topic`
+    pagelnk.innerHTML = `<a href="/"><h2>on this topic</h2></a>`
+</script>
+<link href = "/css/home.css" type="text/css" rel = "stylesheet" >
+
+<div class="page-content">
+    <div class="left-buffer-topics">
+        <div class="new-topic">
+            <h5 class="new-topic">new topic?</h5>
         </div>
     </div>
-        <script src="/js/themes.js"></script>
-  
+
+    <div class="topic-content">
+        <hr class="topics">
+        <div class="topics">
+            <div class="topics-menu"><h5 class="sort">sort:</h5></div>
+            <div class="select-sort">
+                <form class="select-sort" action="" method="GET">
+                    <select name = "sort-option">
+                        <option value = "top-ratings"><h5 class="sort-option">top ratings</h5></option>
+                        <option value = "alphabetical"><h5 class="sort-option">alphabetical</h5></option>
+                        <option value = "most-views"><h5 class="sort-option">most views</h5></option>
+                        <option value = "most-commented"><h5 class="sort-option">most conmmented</h5></option>
+                    </select>
+                    <input type="submit" value="go">
+                </form>
+            </div> 
+        </div>
+        <hr class="topics">
+        <div class="topic-list">
+            {{#each themes as |t|}}
+                <a href="themes/{{t.themeName}}"><h3 class="theme">{{t.themeName}}</h3></a>
+            {{/each}}
+        </div>
+    </div>
+</div>
+    <script src="/js/themes.js"></script>

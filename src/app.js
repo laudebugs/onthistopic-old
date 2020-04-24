@@ -24,7 +24,7 @@ app.set('view engine', 'hbs');
 
 // TODO: require the schemas and add the models to mongoose
 require('./db');
-const Topic = mongoose.model('Topic');
+const Theme = mongoose.model('Theme');
 const Podcast = mongoose.model('Podcast');
 const User = mongoose.model('User');
 const Note = mongoose.model('Note');
@@ -68,6 +68,14 @@ mongoose.connect('mongodb://localhost/fnp', { useNewUrlParser: true, useUnifiedT
 });
 mongoose.set('useCreateIndex', true);
 
+//middleware to check if user is logged in
+function loggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+      next();
+    } else {
+      res.redirect('/login');
+    }
+  }
 
 /// Routes ///
 //homepage
@@ -109,24 +117,88 @@ app.get('/logout', function(req, res){
     res.redirect('/');
     });
 
-
-
-//topics page
+//Themes page
 app.get('/themes', function(req, res){
-    res.render('themes');
+    Theme.find({}, (err, themes)=>{
+        res.render('themes', {themes:themes})
+    })
 })
 app.post('/themes', function(req, res){
     res.redirect('/themes');
 })
 
-app.get('/themes/hope', function(req, res){
-    //Podcast.log(podcast_list);
-    //var pod_iframes = `<iframe src=${podcast_list[0]}width="100%" height="60" frameborder="0" ></iframe>`;  
-    //document.body.innerHTML = pod_iframes;
-    
-    Podcast.find({}, (err, pods)=>{
-        console.log(pods)
-        res.render('topic.hbs', {page:"hope",podcasts:pods})
+app.post('/themes/add', function(req, res){
+    const t = new Theme({
+        themeName: req.body.name
+    })
+    t.save((err)=>{
+        if(err){
+            res.status(500).json({saved:false})
+        }else{
+            res.json({saved:true, result: req.body.name})
+        }
+    });
+});
+
+app.post('/themes/addThemeContent', function(req, res){
+    //Get theme object to save content  
+    Theme.find({themeName:req.body.name},(err, foundTheme)=>{
+        if(err){
+            console.log("Not found theme")
+        }else{
+            //Split the string of links
+            links = req.body.content.split(",")
+            for (let i=0; i<links.length; i++){
+                const p = new Podcast({
+                    embed_link:links[i]
+                })
+                p.save((err)=>{
+                    console.log("saving to theme")
+                    // Update the theme
+                    Theme.updateOne({
+                        themeName:req.body.name
+                    },{
+                        $push:{
+                            podcasts:p._id
+                        }
+                    }).exec(function(err, res){
+                        if(err){
+                            console.log('cannot update theme with podcast')
+                        }
+                        else{
+                            console.log('Success in updating', res)
+                        }
+                    })
+                })
+            }
+        }
+    })
+    //For each podcast link, create a new object and add the reference to the theme
+
+})
+app.get('/theme-content', function(req, res){
+    res.redirect('/theme/?theme='+req.query.theme)
+});
+app.get('/theme', function(req, res){
+    Theme.find({themeName:req.query.theme}, function(err, target){
+        if(err){
+            console.log("cannot find your theme")
+        }else{
+            console.log("theme is:",req.query.theme)
+            pods = [];
+            arr = target[0].podcasts
+            console.log(arr)
+            for(let i=0; i<arr.length; i++){
+                Podcast.find({_id:arr[i]}, function(err, pod){
+                    if (err){console.log("didn't find pod")}
+                    else{
+                        console.log("found your pod: ", pod[0].embed_link)
+                        pod.push(pod[0].embed_link)}
+                })
+            }
+            console.log("here",pods)
+            res.render('topic', {page:req.query.theme,podcasts:pods})
+        }
     })
 });
 app.post('/themes/hope', function(req, res){
@@ -159,19 +231,15 @@ app.get('/foryou', function(req, res){
     res.render('4u.hbs');
 })
 
-//middleware to check if user is logged in
-function loggedIn(req, res, next) {
-    if (req.isAuthenticated()) {
-      next();
-    } else {
-      res.redirect('/login');
-    }
-  }
-
 //my account page
 app.get('/myaccount', loggedIn, function(req, res){
-    
-    res.render('myaccount.hbs');
+    if (req.user) {
+        // logged in
+        res.render('myaccount.hbs');
+    } else {
+        // not logged in
+        res.redirect('/login')
+    }
 })
 app.get('/temp', function(req, res){
     
