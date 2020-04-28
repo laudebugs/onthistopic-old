@@ -1,0 +1,8 @@
+<script page={{user}}>
+    siteTtl = document.querySelector('.page-title')
+    user = document.currentScript.getAttribute('page')
+    siteTtl.innerHTML = `<h1 class="page-title">${user}'s page</h1>`
+    pagelnk = document.querySelector('.site-title')
+    pagelnk.textContent = `on this topic`
+    pagelnk.innerHTML = `<a href="/"><h2>on this topic</h2></a>`
+</script>

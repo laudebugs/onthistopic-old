@@ -14,11 +14,6 @@ const flash = require('connect-flash');
 
 const app = express();
 app.use(express.static(publicPath));
-console.log("here")
-
-console.log(publicPath)
-console.log("here")
-
 //view engine setup
 app.set('view engine', 'hbs');
 
@@ -28,6 +23,7 @@ const Theme = mongoose.model('Theme');
 const Podcast = mongoose.model('Podcast');
 const User = mongoose.model('User');
 const Note = mongoose.model('Note');
+const connectEnsureLogin = require('connect-ensure-login');
 
 
 
@@ -35,13 +31,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
-// app.use(express.cookieSession({
-//     key: "mysite.sid.uid.whatever",
-//     secret: process.env["SESSION_SECRET"],
-//     cookie: {
-//       maxAge: 2678400000 // 31 days
-//     },
-//   }));
+
 app.use(session({
     secret: 'keyboard cat',
     keys: ['secretkey1', 'secretkey2', '...']}
@@ -83,10 +73,8 @@ app.get('/', function(req, res){
     console.log(req.user)
     res.render('home.hbs', {user:req.user});
 })
-
 //register page
 app.get('/register', function(req, res){
-    
     res.render('register.hbs', {option:"login"});
 })
 app.post('/register', function(req, res) {
@@ -102,7 +90,6 @@ app.post('/register', function(req, res) {
         res.redirect('/');
     });
 });
-
 //log in page
 app.get('/login', function(req, res){
     
@@ -111,7 +98,6 @@ app.get('/login', function(req, res){
 app.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }), function(req, res) {
     res.redirect('/');
   });
-
 app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
@@ -123,98 +109,119 @@ app.get('/themes', function(req, res){
         res.render('themes', {themes:themes})
     })
 })
-app.post('/themes', function(req, res){
-    res.redirect('/themes');
-})
 
-app.post('/themes/add', function(req, res){
-    const t = new Theme({
-        themeName: req.body.name
-    })
-    t.save((err)=>{
+app.post('/themes', connectEnsureLogin.ensureLoggedIn(), function(req, res){
+    console.log("trying to save")
+    Theme.countDocuments({themeName:req.body.theme}, (err, count)=>{
+        console.log(req.body.theme)
         if(err){
-            res.status(500).json({saved:false})
-        }else{
-            res.json({saved:true, result: req.body.name})
+            console.log(err)
         }
-    });
-});
-
-app.post('/themes/addThemeContent', function(req, res){
-    //Get theme object to save content  
-    Theme.find({themeName:req.body.name},(err, foundTheme)=>{
-        if(err){
-            console.log("Not found theme")
-        }else{
-            //Split the string of links
-            links = req.body.content.split(",")
-            for (let i=0; i<links.length; i++){
-                const p = new Podcast({
-                    embed_link:links[i]
-                })
-                p.save((err)=>{
-                    console.log("saving to theme")
-                    // Update the theme
-                    Theme.updateOne({
-                        themeName:req.body.name
-                    },{
-                        $push:{
-                            podcasts:p._id
-                        }
-                    }).exec(function(err, res){
-                        if(err){
-                            console.log('cannot update theme with podcast')
-                        }
-                        else{
-                            console.log('Success in updating', res)
-                        }
-                    })
-                })
+        else{
+            if(count===0){
+                console.log("document doesn't exist")
+                const t = new Theme({
+                    themeName: req.body.theme
+                });
+                t.save((err)=>{
+                    if(err){
+                        res.status(500).json({saved:false})
+                    }else{
+                        //Update user with theme
+                        User.updateOne({
+                            _id:req.user._id
+                        },{
+                            $push:{
+                                podcasts:t._id
+                            }
+                        }).exec(function(err, result){
+                            if(err){
+                                console.log('cannot update user with podcast')
+                            }
+                            else{
+                                console.log('Success in updating user with podcast', result)
+                            }
+                        })
+                        res.redirect('/themes')
+                    }
+                });
+            }
+            else if(count>0){
+                console.log("document doesn't exist")
+                res.redirect('/themes')
             }
         }
     })
-    //For each podcast link, create a new object and add the reference to the theme
-
-})
-app.get('/theme-content', function(req, res){
-    res.redirect('/theme/?theme='+req.query.theme)
 });
+
+//Get a theme's content
 app.get('/theme', function(req, res){
-    Theme.find({themeName:req.query.theme}, function(err, target){
-        if(err){
-            console.log("cannot find your theme")
-        }else{
-            console.log("theme is:",req.query.theme)
-            pods = [];
-            arr = target[0].podcasts
-            console.log(arr)
-            for(let i=0; i<arr.length; i++){
-                Podcast.find({_id:arr[i]}, function(err, pod){
-                    if (err){console.log("didn't find pod")}
-                    else{
-                        console.log("found your pod: ", pod[0].embed_link)
-                        pod.push(pod[0].embed_link)}
-                })
+    list = []
+    console.log("HERE:", req.query.theme)
+    Theme
+        .findOne({themeName:req.query.theme})
+        .populate('podcasts').exec((err, podcasts)=>{
+            list = podcasts.podcasts;
+            pods = []
+            for(let i=0; i<list.length; i++){
+                pods.push(list[i].embed_link)
             }
-            console.log("here",pods)
-            res.render('topic', {page:req.query.theme,podcasts:pods})
-        }
-    })
+            console.log("List: ",list)
+            console.log("Pods:", pods)
+            res.render('topic',{page:req.query.theme,podcasts:list})
+        });
 });
-app.post('/themes/hope', function(req, res){
+//Add a podcast to the theme
+app.post('/theme',connectEnsureLogin.ensureLoggedIn(), function(req, res){
+    podname = req.query.theme;
+    addPod = req.body.link;
+    console.log("theme to add pod is:", podname)
+    console.log(addPod)
     const p = new Podcast({
-        embed_link: req.body.link
+        embed_link:addPod,
+        added_by:req.user._id
     })
     p.save((err)=>{
-        res.redirect('/themes/hope');
-    });
-});
+        console.log("saving to theme")
+        // Update the theme
+        Theme.updateOne({
+            themeName:podname
+        },{
+            $push:{
+                podcasts:p._id
+            }
+        }).exec(function(err, res){
+            if(err){
+                console.log('cannot update theme with podcast')
+            }
+            else{
+                console.log('Success in updating', res)
+            //Update user with podcast  
+            User.updateOne({
+                _id:req.user._id
+            },{
+                $push:{
+                    podcasts:p._id
+                }
+            }).exec(function(err, res){
+                if(err){
+                    console.log('cannot update user with podcast')
+                }
+                else{
+                    console.log('Success in updating user with podcast', res)
+                }
+            })
+            }
+        })
+    })
+    res.redirect(`/theme/?theme=${podname}`);
+    
+})
 //people page
 app.get('/people', function(req, res){
     
     res.render('people.hbs');
 })
-
 //map page
 app.get('/map', function(req, res){
     
@@ -224,25 +231,20 @@ app.get('/timeline', function(req, res){
     
     res.render('timeline.hbs');
 })
-
 //my account page
 app.get('/foryou', function(req, res){
     
     res.render('4u.hbs');
 })
-
 //my account page
-app.get('/myaccount', loggedIn, function(req, res){
-    if (req.user) {
-        // logged in
-        res.render('myaccount.hbs');
-    } else {
-        // not logged in
-        res.redirect('/login')
-    }
-})
-app.get('/temp', function(req, res){
+app.get('/myaccount', connectEnsureLogin.ensureLoggedIn(),  function(req, res){
     
+    
+    console.log(req.user.username)
+    res.render('myaccount', {user: req.user.username})
+})
+
+app.get('/temp', function(req, res){
     res.render('temp.hbs');
 })
 

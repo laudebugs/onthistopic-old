@@ -36,7 +36,7 @@
         <hr class="topics">
         <div class="topic-list">
             {{#each themes as |t|}}
-                <a href="themes/{{t.themeName}}"><h3 class="theme">{{t.themeName}}</h3></a>
+                <a class="theme-title" href="theme/?theme={{t.themeName}}"><h3 class="theme">{{t.themeName}}</h3></a>
             {{/each}}
         </div>
     </div>

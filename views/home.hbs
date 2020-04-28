@@ -1,52 +1,32 @@
 
-        
 
 
+
+
+<!-- show featured content    -->
+<div class="main-content">
+    <div class="blurb">
+        <h3>Deep dive into one theme, place, or public figure</h3>
+        <p>editor's choice:</p>
+    </div>
+    <div>
+        <!-- for each featured topic, place it in a list  -->
+
+        {{#each theme as |t|}}
+            <div class="featured-content">
+            <a href="themes/?theme={{t.themeName}}"><p class="topic">
+                {{t.themeName}}
+            </p>
+            </a>
+            <p class="blurb">
+                {{t.blurb}}
+            </p>
+            <p class="stats">
+                {{t.podcasts.length}} podcast episodes
+            </p>
+        </div>
+
+        {{/each}}
         
-            <!-- show featured content    -->
-            <div class="main-content">
-                <div class="blurb">
-                    <h3>Deep dive into one theme, place, or public figure</h3>
-                    <p>editor's choice:</p>
-                </div>
-                <div>
-                <!-- for each featured topic, place it in a list  -->
-                    <div class="featured-content">
-                        <a href="themes/fear"><p class="topic">
-                            on fear
-                        </p>
-                        </a>
-                        <p class="blurb">
-                            how fear works, and why it is such a big part of our lives
-                        </p>
-                        <p class="stats">
-                            5 podcast episodes, 3 articles
-                        </p>
-                    </div>
-                    <div class="featured-content">
-                        <a href="themes/hope"><p class="topic">
-                            on hope
-                        </p>
-                        </a>
-                        <p class="blurb">
-                            in dark times, what is it that gives us reason to not give up
-                        </p>
-                        <p class="stats">
-                            7 podcast episodes, 3 articles, 1 playlist
-                        </p>
-                    </div>
-                    <div class="featured-content">
-                        <a href="places/nairobi">
-                        <p class="topic">
-                            on nairobi
-                        </p>
-                        </a>
-                        <p class="blurb">
-                            Kenya's capital holds beauty and voices that speak to what makes the city magical
-                        </p>
-                        <p class="stats">
-                            9 podcast episodes, 5 articles, 2 playlists
-                        </p>
-                    </div>
-                </div>
-            </div>
+    </div>
+</div>

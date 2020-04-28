@@ -38,6 +38,12 @@ h1.page-title{
     font-size: 400%;
     color: #E8C161;
 }
+.page-title a{
+    color: #E8C161;
+}
+.page-title a:hover{
+    text-decoration: overline;
+}
 h1.sideheading{
     font-size: 125%;
 }
@@ -216,6 +222,18 @@ div.notebook{
     -webkit-border-radius: 1em 4em 1em 4em
     / 2em 1em 2em 1em;
 }
+div.add-podcast{
+    border: 1px solid whitesmoke;
+    border-radius: 1em 4em 1em 4em / 2em 1em 2em 1em;
+    -moz-border-radius: 1em 4em 1em 4em
+    / 2em 1em 2em 1em;
+    -webkit-border-radius: 1em 4em 1em 4em
+    / 2em 1em 2em 1em;
+}
+div.podContent{
+    display: inline-block;
+    width: 70%;
+}
 #sidebyside{
     display: inline-block;
 } 
@@ -308,6 +326,11 @@ form.signin{
     color: #E8C161;;
     background-color: #072D60;
     border: 1px solid wheat;
+}
+#addedContent{
+    font-family: "GlacialIndifference";
+    font-size: 100%;
+    color: #E8C161;;
 }
 textarea.fill{
 

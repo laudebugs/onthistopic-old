@@ -6,6 +6,7 @@ const path = require('path');
 const Theme = new mongoose.Schema({
     themeName: String,
     added_by: {type: Schema.Types.ObjectId, ref: 'User'},
+    blurb:String,
     rating:[0,0,0,0,0],
     tags:[String],//Consider making this an object??
     podcasts: [{type: Schema.Types.ObjectId, ref: 'Podcast'}],
@@ -19,7 +20,7 @@ const Podcast = new mongoose.Schema({
 });
 const User = new mongoose.Schema({
     notes: [{type: Schema.Types.ObjectId, ref: 'Note'}],
-    Podcasts: [{type: Schema.Types.ObjectId, ref: 'Podcast'}],
+    podcasts: [{type: Schema.Types.ObjectId, ref: 'Podcast'}],
     topics: [{type: Schema.Types.ObjectId, ref: 'Topic'}]
     /**
      * _TODO_: 

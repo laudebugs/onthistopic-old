@@ -21,6 +21,7 @@
                     ifr = document.createElement('iframe')
                     ifr.className = "ifr"
                     ifr.src = document.currentScript.getAttribute('link')
+                    console.log("We are here:",document.currentScript.getAttribute('link'))
                     parent = document.querySelector('.resources')
                     parent.appendChild(ifr)
                     console.log(ifr);
@@ -28,16 +29,17 @@
             {{/each}}
         </div>
     </div>
-    <div class="notebook">
-    <form style="width: 20%;" class="signin" action="" method="POST">
+    <div class="add-podcast">
+    <form style="width: 20%;" class="signin" action="/theme/?theme={{page}}" method="POST">
         <div class="frm">
             <tr class="signin">
                 <td style="margin: 5px;">Podcast Embed Url from Spotify, Soundcloud or Mixcloud: <br>eg. https://open.spotify.com/embed-podcast/episode/76ARrkBUa7wCnDk7EMNoUw<br></td>
-                <td><textarea class="fill" name="link" id="" cols="10" rows="5"></textarea></td>
+                <td><input class="fill" name="link" id="addPod" size="60" height="5" type="url" required></td>
             </tr>
         </div>
+        
         <div style="display: inline-block;" class="signinbtn">
-        <tr><td><button style="float: center;" class="signinbtn" type="submit">Add</button></td></tr>
+        <tr><td><button id="submitPod" style="float: center;" class="signinbtn" type="submit">Add</button></td></tr>
         </div>
     </form>
     </div>
