@@ -1,20 +1,29 @@
-// const div = document.querySelector(".resources")
-// var ifr = document.createElement("iframe")
-// var ifr2 = document.createElement("iframe")
+document.addEventListener('DOMContentLoaded', main);
 
+function main(){
 
-// ifr.height="232"
-// ifr2.height="232"
+    logged = document.currentScript.getAttribute('lin')
+    opt= document.getElementById('signedin');
+    opt2 = document.getElementById('register');
 
-// ifr.width="100%"
-// ifr.width="100%"
+    if(logged===true){
+        console.log("here")
+        opt.innerHTML = `
+        <a id="signedin" href="/myaccount" class="side"><p class="account">my account</p></a>
+        `;
+        opt2.innerHTML = `
+            <a href="/logout" class="side"><p class="account">logout</p></a>
+        `;
+    }
+    else{
+        opt.innerHTML=`
+        <a  href="/login" class="side"><p class="account">login</p></a>
 
-// ifr.border = "0"
-// ifr.border = "0"
+        `;
+        opt2.innerHTML =`
+            <a href="/register" class="side"><p class="account">register</p></a>
+        `;
+    }
 
-// ifr.src= "https://open.spotify.com/embed-podcast/episode/1Yzy2yj8sYTNgc4FyDGqHE"
-// div.append(ifr)
-
-// ifr2.src ="https://open.spotify.com/embed-podcast/episode/3TAwJHCPs3jI6qS0UzrBKh"
-// div.append(ifr2)
-
+    
+}

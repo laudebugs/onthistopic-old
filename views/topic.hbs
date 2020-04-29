@@ -1,7 +1,7 @@
 <script page={{page}}>
     siteTtl = document.querySelector('.page-title')
     pg = document.currentScript.getAttribute('page')
-    siteTtl.innerHTML = `<h1 class="page-title"><a href="/themes/${pg}">${pg}</a></h1>`
+    siteTtl.innerHTML = `<h1 class="page-title"><a href="/theme/?theme=${pg}">${pg}</a></h1>`
     pagelnk = document.querySelector('.site-title')
     pagelnk.textContent = `on this topic`
     pagelnk.innerHTML = `<a href="/"><h2>on this topic</h2></a>`
@@ -10,8 +10,6 @@
     <!-- main page content  -->
     <div>
             <div class="content-menu"><h4>podcasts</h4></div>
-            <div class="content-menu"><h4>articles</h4></div>
-            <div class="content-menu"><h4>music</h4></div>
     </div>
     <div >
         <div class="resources">
@@ -33,7 +31,8 @@
     <form style="width: 20%;" class="signin" action="/theme/?theme={{page}}" method="POST">
         <div class="frm">
             <tr class="signin">
-                <td style="margin: 5px;">Podcast Embed Url from Spotify, Soundcloud or Mixcloud: <br>eg. https://open.spotify.com/embed-podcast/episode/76ARrkBUa7wCnDk7EMNoUw<br></td>
+                <td style="margin: 5px;">Podcast Embed Url from Spotify, Soundcloud or Mixcloud: <br>eg. https://open.spotify.com/embed-podcast/episode/76ARrkBUa7wCnDk7EMNoUw<br>
+                instructions on how to embed podcasts: <a class="instructions" style="color: yellow;" href="/howto">How to Embed Podcasts <br></a></td>
                 <td><input class="fill" name="link" id="addPod" size="60" height="5" type="url" required></td>
             </tr>
         </div>

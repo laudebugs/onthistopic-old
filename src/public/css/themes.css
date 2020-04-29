@@ -65,6 +65,10 @@ div.topics-menu{
     margin: auto;
     
 }
+a.instructions{
+    text-decoration: none;
+    color: yellow;
+}
 
 .select-sort select{
     border-radius: 0;

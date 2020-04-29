@@ -57,6 +57,19 @@ h3{
     font-family: 'YesevaOne';
     color: #ffffff;
 }
+ol, ul, li{
+    font-size: 125%;
+    font-family: 'YesevaOne';
+    color: #ffffff;   
+}
+.howto a{
+    color: rgb(236, 183, 236);
+    text-decoration: none;
+}
+.howto a:hover{
+    text-decoration: overline deeppink;
+    color: wheat;
+}
 h4{
     font-family: 'PlayfairDisplay-italics';
     font-size: 200%;
@@ -166,15 +179,12 @@ div>img{
     height: 3%;
 }
 div.content-menu{
-    width: 20%;
-    height: 60px;
     border: 1.5px solid #8dcbda;
     margin-right: 5%;
     margin-left: 5%;
     margin-bottom: 5%;
     align-items: center;
     text-align: center;
-    display: inline-flex;
     justify-content: center;
 }
 iframe.content{
