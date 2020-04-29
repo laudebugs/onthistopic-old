@@ -182,7 +182,7 @@ app.get('/theme', function(req, res){
 app.get('/howTo', function(req, res){
     res.render('howto');
 })
-app.post('/theme',loggedIn, function(req, res){
+app.post('/theme',function(req, res){
     podname = req.query.theme;
     addPod = req.body.link;
     console.log("theme to add pod is:", podname)
